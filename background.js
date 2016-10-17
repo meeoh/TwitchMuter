@@ -4,4 +4,5 @@
 
 chrome.tabs.onActivated.addListener(function(obj) {	
 	console.log(obj);
+	chrome.tabs.sendMessage(obj.tabId, {test:"TEST"},function(response){});
 });
