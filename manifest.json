@@ -1,6 +1,6 @@
 {
-    "name": "test name",
-    "description": "test",
+    "name": "Twitch Muter",
+    "description": "Only plays audio of active twitch tab",
     "version": "1.0",
     "permissions": [
         "activeTab",
@@ -15,7 +15,8 @@
         "js": ["jquery-3.1.1.js", "content_script.js"]
     }],
     "browser_action": {
-        "default_title": "test action"
+        "default_title": "test action",
+        "default_icon": "volumeOff.png"
     },
     "manifest_version": 2
 }
