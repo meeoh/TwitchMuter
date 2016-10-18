@@ -3,13 +3,13 @@
 // found in the LICENSE file.
 
 //for doing initial mute
-// chrome.browserAction.onClicked.addListener(function(tab) {
-//     chrome.tabs.query({ currentWindow: true, url: "https://www.twitch.tv/*" }, function(tabs) {
-//         for (var i = 0; i < tabs.length; i++) {
-//             chrome.tabs.executeScript(tabs[i].id, { file: "intialMute.js" });
-//         }
-//     })
-// });
+chrome.browserAction.onClicked.addListener(function(tab) {
+    chrome.tabs.query({ currentWindow: true, active: false, url: "https://www.twitch.tv/*" }, function(tabs) {
+        for (var i = 0; i < tabs.length; i++) {
+            chrome.tabs.executeScript(tabs[i].id, { file: "intialMute.js" });
+        }
+    })
+});
 
 
 var oldTabId = 0;
