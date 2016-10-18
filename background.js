@@ -20,14 +20,16 @@ chrome.tabs.onActivated.addListener(function(obj) {
     chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
     	if (oldTabId == 0){
     		oldTabId = tabs[0].id;
+    		chrome.tabs.sendMessage(tabs[0].id, { greeting: "hello" }, function(response) {
+    		});
     		return;
     	}    	
 
         chrome.tabs.sendMessage(tabs[0].id, { greeting: "hello" }, function(response) {
         });
 
-        // chrome.tabs.sendMessage(oldTabId, { greeting: "hello" }, function(response) {
-        // });
+        chrome.tabs.sendMessage(oldTabId, { greeting: "hello" }, function(response) {
+        });
   
         oldTabId = tabs[0].id;
 
