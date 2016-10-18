@@ -1,7 +1,7 @@
 {
     "name": "Twitch Muter",
     "description": "Only plays audio of active twitch tab",
-    "version": "1.0",
+    "version": "1.1",
     "permissions": [
         "activeTab",
         "http://*/",
