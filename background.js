@@ -6,6 +6,13 @@ var enabled = false;
 
 //Logic for pressing the browserAction icon
 chrome.browserAction.onClicked.addListener(function(tab) {
+	
+	chrome.tabs.query({ currentWindow: true, active: true, url: "https://www.twitch.tv/*" }, function(tabs) {
+        for (var i = 0; i < tabs.length; i++) {
+			chrome.tabs.executeScript(tabs[i].id, { file: "intialMute.js" });
+        }
+	});
+	
     enabled = !enabled;
     chrome.browserAction.setIcon(enabled ? {"path": "volumeUp.png"} : {"path" : "volumeOff.png"});
 });
