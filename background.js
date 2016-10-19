@@ -8,7 +8,8 @@ var enabled = false;
 chrome.browserAction.onClicked.addListener(function(tab) {
     enabled = !enabled;
     chrome.browserAction.setIcon(enabled ? {"path": "volumeUp.png"} : {"path" : "volumeOff.png"});
-	
+
+	//go through all tabs and mute them
 	if (enabled) {
 		chrome.tabs.query({ currentWindow: true, url: "https://www.twitch.tv/*" }, function(tabs) {
         for (var i = 0; i < tabs.length; i++) {
